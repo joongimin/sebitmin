@@ -1,0 +1,104 @@
+@import "common";
+
+.projects {
+  .show {
+    @include clearfix;
+    border-bottom: 1px solid $sebitmin_black;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    
+    .project_description {
+      float: left;
+      width: 160px;
+      
+      .title {
+        font-family: $sebitmin_font_emphasize;
+        font-size: 16px;
+      }
+      
+      .title_separator {
+        width: 14px;
+        height: 2px;
+        margin: 5px 0 5px 0;
+        background-color: $sebitmin_black;
+      }
+      
+      .description {
+        margin-top: 190px;
+        font-family: 'Karla', sans-serif;
+        font-size: 10px;
+      }
+      
+      .description_separator {
+        width: 7px;
+        height: 1px;
+        margin: 17px 0 5px 0;
+        background-color: $sebitmin_black;
+      }
+      
+      .detail {
+        font-family: 'Karla', sans-serif;
+        font-size: 10px;
+      }
+    }
+  }
+  
+  .project_presentation {
+    float: right;
+    margin-right: 20px; // For scroll bar
+    
+    width: 800px;
+    height: 500px;
+    background-color: $sebitmin_pink;
+    position: relative;
+    
+    .introVideo {
+      border: none;
+    }
+    
+    .button_nav {
+      position: absolute;
+      font-family: $sebitmin_font_emphasize;
+      font-size: 16px;
+      top: 230px;
+      opacity: 0.3;
+      
+      &.prev {
+        left: 22px;
+      }
+      
+      &.next {
+        right: 22px;
+      }
+      
+      &.nav_end {
+        display: none;
+      }
+    }
+    
+    .image_presentation {
+      width: 800px;
+      height: 500px;
+      overflow: hidden;
+      position: relative;
+      
+      .image_container {
+        @include clearfix;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1600px;
+        
+        img {
+          float: left;
+        }
+      }
+    }
+    
+    &.in_transition {
+      .button_nav {
+        display: none;
+      }
+    }
+  }
+}

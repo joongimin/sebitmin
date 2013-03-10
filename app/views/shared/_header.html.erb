@@ -1,0 +1,19 @@
+<div class="shared">
+  <div class="header">
+    <div class="logo"><a href="/">SEBIT MIN</a></div>
+    <div class="menu">
+      <div class="menu_column first">
+        <% project_type = request.query_parameters[:project_type] %>
+        <% project_type = project_type.to_i if !project_type.nil? %>
+        <div class="menu_item"><%= link_to "PROJECTS", "/", :remote => true, :class => (request.path == "/" && project_type.nil?) ? "selected title selectable_menu" : "title selectable_menu" %></div>
+        <div class="menu_item"><%= link_to "BOOKS", "/?project_type=#{Settings.project_type_book}", :remote => true, :class => (request.path == "/" && project_type == Settings.project_type_book) ? "selected selectable_menu" : "selectable_menu" %> / <%= link_to "POSTER", "/?project_type=#{Settings.project_type_poster}", :remote => true, :class => (request.path == "/" && project_type == Settings.project_type_poster) ? "selected selectable_menu" : "selectable_menu" %> /</div>
+        <div class="menu_item"><%= link_to "IDENTITY", "/?project_type=#{Settings.project_type_identity}", :remote => true, :class => (request.path == "/" && project_type == Settings.project_type_identity) ? "selected selectable_menu" : "selectable_menu" %> / <%= link_to "INTERACTIVE", "/?project_type=#{Settings.project_type_interactive}", :remote => true, :class => (request.path == "/" && project_type == Settings.project_type_interactive) ? "selected selectable_menu" : "selectable_menu" %></div>
+      </div>
+      <div class="menu_column second">
+        <div class="menu_item"><%= link_to "INFO", "/info/about_me", :remote => true, :class => "title selectable_menu" %></div>
+        <div class="menu_item"><%= link_to "ABOUT ME", "/info/about_me", :remote => true, :class => (request.path == "/info/about_me" ? "selected selectable_menu" : "selectable_menu") %></div>
+        <div class="menu_item"><%= link_to "SHOP", "http://en.nouvaux.com", :target => "_blank" %></div>
+      </div>
+    </div>
+  </div>
+</div>

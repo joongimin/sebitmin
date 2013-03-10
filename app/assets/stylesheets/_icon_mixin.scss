@@ -1,0 +1,11 @@
+@mixin iconWaitingIndicator {
+  background-image: image-url('waiting_indicator.gif');
+  width: 32px;
+  height: 32px;
+}
+
+@mixin iconWaitingIndicator16 {
+  background-image: image-url('waiting_indicator16.gif');
+  width: 16px;
+  height: 16px;
+}

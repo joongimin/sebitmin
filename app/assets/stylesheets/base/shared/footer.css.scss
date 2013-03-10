@@ -1,0 +1,10 @@
+@import "common";
+
+.shared {
+  .footer {
+    border-top: 2px solid $sebitmin_black;
+    .copyright {
+      margin: 14px 0 43px 0;
+    }
+  }
+}

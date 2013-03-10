@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sebit Min</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%
+  @template_paths = [
+    "shared/waiting",
+    ]
+  %>
+  <% for template_path in @template_paths %>
+    <script id="<%= template_path.sub("/", "_") %>_tmpl" type="x-jquery-tmpl">
+      <%= render :partial => template_path, :locals => { :template => true } %>
+    </script>
+  <% end %>
+</head>
+<body>
+  <div class="content_outer">
+    <%= render :partial => "shared/header" %>
+    <div class="content">
+      <div class="project_stage">
+        <%= yield :project_stage %>
+      </div>
+      <div class="content_main">
+        <%= yield :content_main %>
+      </div>
+    </div>
+    <%= yield %>
+    <%= render :partial => "shared/footer" %>
+  </div>
+  <% if admin_signed_in? %>
+    <%= link_to "log out", destroy_admin_session_path, :method => :delete %>
+  <% end %>
+</body>
+</html>

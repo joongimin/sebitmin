@@ -1,0 +1,79 @@
+@import "common";
+
+.projects {
+  .index {
+    .project_row {
+      @include clearfix;
+      margin-top: 16px;
+      
+      &.first {
+        margin-top: 0;
+      }
+      
+      .project {
+        float: left;
+        width: 240px;
+        height: 240px;
+        margin-right: 16px;
+        background-color: $sebitmin_grey;
+        position: relative;
+        
+        &.last {
+          margin-right: 0;
+        }
+        
+        .form_update_cover_photo {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        
+        .cover_photo {
+          position: absolute;
+          top: 0;
+          left: 0;
+          
+          img {
+            width: 240px;
+            height: 240px;
+          }
+        }
+        
+        .project_content {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 180px;
+          height: 180px;
+          background-color: $sebitmin_pink;
+          opacity: 0.7;
+          padding: 60px 30px 0 30px;
+          text-align: center;
+          
+          .title {
+            font-family: $sebitmin_font_emphasize;
+            font-size: 23px;
+          }
+          
+          .separator {
+            width: 14px;
+            height: 2px;
+            background-color: $sebitmin_black;
+            margin: 7px auto 20px auto;
+          }
+          
+          .sub_title {
+            font-size: 14px;
+          }
+        }
+        
+        &:hover {
+          .project_content {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

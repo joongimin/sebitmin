@@ -1,0 +1,16 @@
+@mixin iconActionZoom {
+  background-position: 0 0 !important;
+  width: 17px;
+  height: 17px;
+}
+
+@mixin iconActionZoomOver {
+  background-position: 0 -67px !important;
+}
+
+@mixin iconAddCream {
+  background-position: 0 -134px !important;
+  width: 12px;
+  height: 12px;
+}
+

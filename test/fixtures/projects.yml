@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: LE MéPRIS
+  sub_title: COMPLETE SCREENPLAY WITH COMMENTARY
+  description: A book designed using the screen<br>play of Jean-Luc Godard’s film<br>Le Mépris. Following the film, the<br>book is divided into three sections;<br>the red, the yellow, and the blue.<br><br>Memorable scenes with<br>commentary follows each section,<br>along with infographics of<br>the multiple languages used<br>in the film.
+  detail: 48 pages<br>9” × 10 1⁄2”<br>inkjet printing<br>coptic bound
+  project_type: 10

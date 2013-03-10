@@ -1,0 +1,46 @@
+@import "common";
+
+.shared {
+  .header {
+    @include clearfix;
+    margin-top: 50px;
+    border-bottom: 2px solid $sebitmin_black;
+    
+    .logo {
+      float: left;
+      font-size: 20px;
+      font-family: $sebitmin_font_emphasize;
+    }
+    
+    .menu {
+      float: right;
+      margin-bottom: 30px;
+      
+      .menu_column {
+        float: left;
+        &.first {
+          width: 186px;
+        }
+        
+        &.second {
+          width: 170px;
+        }
+        
+        .menu_item {
+          line-height: 12px;
+          a:hover {
+            background-color: $sebitmin_pink;
+          }
+          
+          a.title {
+            font-family: $sebitmin_font_emphasize;
+          }
+          
+          a.selected {
+            background-color: $sebitmin_pink;
+          }
+        }
+      }
+    }
+  }
+}

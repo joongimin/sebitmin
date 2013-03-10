@@ -1,0 +1,10 @@
+<% if !@render_partials.nil? %>
+  <% @render_partials.each do |render_partial| %>
+    <%= render :partial => render_partial %>
+  <% end %>
+<% end %>
+<% if !@render_templates.nil? %>
+  <% @render_templates.each do |render_template| %>
+    <%= render :template => render_template %>
+  <% end %>
+<% end %>

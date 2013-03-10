@@ -1,0 +1,31 @@
+$sebitmin_black: #231f20;
+$sebitmin_pink: #f5e2e1;
+$sebitmin_grey: #4f4c4d;
+$sebitmin_cream: #fff9ee;
+$sebitmin_fonts: Novecentowide-Book, verdana, "lucida grande", tahoma, arial, sans-serif;
+$sebitmin_font_emphasize: Novecentowide-Medium;
+
+@mixin sebitmin_font {
+  font-family: $sebitmin_fonts;
+  font-stretch: wider;
+}
+
+@mixin clearfix {
+  zoom: 1;
+  
+  &:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
+
+@mixin icon {
+  display: inline-block;
+  position: relative;
+  background-image: image-url("icons.png") !important;
+}

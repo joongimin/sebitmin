@@ -1,0 +1,9 @@
+<% @render_templates.each do |render_template| %>
+  <% render :template => render_template %>
+<% end %>
+<% $rendered_contents = [] %>
+<% [:project_stage, :content_main].each do |content|%>
+  <% if content_for?(content) %>
+    <% $rendered_contents << [content, content_for(content)] %>
+  <% end %>
+<% end %>

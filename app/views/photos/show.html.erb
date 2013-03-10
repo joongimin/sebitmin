@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @photo.url %>
+</p>
+
+<p>
+  <b>Key:</b>
+  <%= @photo.key %>
+</p>
+<p>
+  <b>Org:</b>
+  <%= image_tag @photo.url %>
+</p>
+<% Sebitmin::Application.config.thumbnail_sizes.each do |thumbnail_size| %>
+  <p>
+    <b><%= thumbnail_size.to_s %></b>
+    <%= image_tag @photo["thumbnail_url_#{thumbnail_size}"] %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

@@ -1,0 +1,29 @@
+defaults: &defaults
+  project_type_book: 10
+  project_type_poster: 20
+  project_type_identity: 30
+  project_type_interactive: 40
+  
+  project_content_type_photos: 10
+  project_content_type_html: 20
+
+  aws_s3_bucket_name: sebitmin_s3
+  aws_access_key_id: "AKIAIWTX4KZYGM7AQYMQ"
+  aws_secret_access_key: "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"
+  
+  # Thumbnail Size
+  thumbnail_width_small: 800
+  thumbnail_height_small: 600
+  
+  project_cover_photo_width: 240
+  project_cover_photo_height: 240
+  
+development:
+  <<: *defaults
+  aws_s3_bucket_name: sebitmin_s3_dev
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

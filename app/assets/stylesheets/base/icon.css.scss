@@ -1,0 +1,9 @@
+@import "icon_mixin";
+
+.iconWaitingIndicator {
+  @include iconWaitingIndicator;
+}
+
+.iconWaitingIndicator16 {
+  @include iconWaitingIndicator16;
+}

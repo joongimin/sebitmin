@@ -1,0 +1,70 @@
+<% content_for :content_main do %>
+  <div class="projects">
+    <div class="index">
+      <% for i in 0...[((@projects.length - 1) / 4) + 1, 3].max %>
+        <div class="project_row <%= "first" if i == 0 %>">
+          <% for j in 0...4 %>
+            <% project_index = i * 4 + j %>
+            <% if project_index < @projects.length %>
+              <% project = @projects[project_index] %>
+              <div class="project <%= "last" if j == 3 %>">
+                <%= form_for project, :method => :get, :remote => true, :html => { :class => "form_project" } do %>
+                  <a class="link_project scroll_to_top">
+                    <div id="project_<%= project.id %>_cover_photo" class="cover_photo">
+                      <%= image_tag project.cover_photo.thumbnail_url(:thumbnail_size => :large) if !project.cover_photo.nil? %>
+                    </div>
+                    <div class="project_content">
+                      <div class="title"><%= project.title %></div>
+                      <div class="separator"></div>
+                      <div class="sub_title"><%= project.sub_title.html_safe %></div>
+                    </div>
+                  </a>
+                <% end %>
+                <% if admin_signed_in? %>
+                  <%= form_for project, :url => "/projects/#{project.id}/update_cover_photo", :remote => true, :html => { :class => "form_update_cover_photo" } do |f| %>
+                    <span class="inputFileContainer">
+                      <span class="icon iconAddCream"></span>
+                      <%= f.file_field(:cover_photo, :class => "autoSubmit") %>
+                    </span>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% if admin_signed_in? %>
+    <h1>Listing projects</h1>
+
+    <table>
+      <tr>
+        <th>title </th>
+        <th>sub_title</th>
+        <th>description</th>
+        <th>detail</th>
+        <th>project_type</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.sub_title %></td>
+        <td><%= project.description %></td>
+        <td><%= project.detail %></td>
+        <td><%= project.project_type %></td>
+        <td><%= link_to 'Show', project %></td>
+        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+    <br />
+    <%= link_to 'New Project', new_project_path %>
+  <% end %>
+<% end %>
+<% render :partial => "shared/empty_project_stage" %>

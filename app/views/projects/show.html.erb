@@ -1,0 +1,39 @@
+<% content_for :project_stage do %>
+  <% $html_actions[:project_stage] = "replace_slow" %>
+  <div class="projects">
+    <div class="show">
+      <div class="project_id" value="<%= @project.id %>" style="display: none;"></div>
+      <div class="project_description">
+        <div class="title"><%= @project.title %></div>
+        <div class="title_separator"></div>
+        <div class="sub_title"><%= @project.sub_title.html_safe %></div>
+        <div class="description"><%= @project.description.html_safe %></div>
+        <div class="description_separator"></div>
+        <div class="detail"><%= @project.detail.html_safe %></div>
+      </div>
+      <div class="project_presentation">
+        <% case @project.project_content_type %>
+        <% when Settings.project_content_type_photos %>
+          <div class="data_photos" style="display: none;" photo_count="<%= @project.photos.length %>"> >
+            <% @project.photos.each_with_index do |photo, index| %>
+              <div class="<%= index %>" photo_url="<%= photo.thumbnail_url_small %>"></div>
+            <% end %>
+          </div>
+          <div class="image_presentation">
+            <div class="image_container">
+              <%= image_tag @project.photos[0].thumbnail_url_small if @project.photos.length > 0 %>
+            </div>
+          </div>
+          <a class="button_nav prev nav_end" index="-1"><</a>
+          <a class="button_nav next <%= "nav_end" if @project.photos.length <= 1 %>" index="1">></a>
+        <% when Settings.project_content_type_html %>
+          <%=raw @project.content_html %>
+        <% end %>
+      </div>
+    </div>
+    <% if admin_signed_in? %>
+      <% @imageable = @project %>
+      <%= render :template => "photos/index" %>
+    <% end %>
+  </div>
+<% end %>

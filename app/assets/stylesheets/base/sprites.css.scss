@@ -1,0 +1,20 @@
+@import 'sprites_mixin';.iconActionZoom {
+  @include iconActionZoom;
+}
+
+a:hover {
+  .iconActionZoom {
+    background-position: 0 -67px !important;
+  }
+}
+
+form {
+  .iconActionZoom:hover {
+    background-position: 0 -67px !important;
+  }
+}
+
+.iconAddCream {
+  @include iconAddCream;
+}
+

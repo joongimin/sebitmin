@@ -1,0 +1,169 @@
+@import "common";
+
+@font-face {font-family: 'Novecentowide-Bold';src: url('/webfonts/21F7CD_0_0.eot');src: url('/webfonts/21F7CD_0_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/21F7CD_0_0.woff') format('woff'),url('/webfonts/21F7CD_0_0.ttf') format('truetype');}
+@font-face {font-family: 'Novecentowide-Light';src: url('/webfonts/21F7CD_1_0.eot');src: url('/webfonts/21F7CD_1_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/21F7CD_1_0.woff') format('woff'),url('/webfonts/21F7CD_1_0.ttf') format('truetype');}
+@font-face {font-family: 'Novecentowide-DemiBold';src: url('/webfonts/21F7CD_2_0.eot');src: url('/webfonts/21F7CD_2_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/21F7CD_2_0.woff') format('woff'),url('/webfonts/21F7CD_2_0.ttf') format('truetype');}
+@font-face {font-family: 'Novecentowide-Book';src: url('/webfonts/21F7CD_3_0.eot');src: url('/webfonts/21F7CD_3_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/21F7CD_3_0.woff') format('woff'),url('/webfonts/21F7CD_3_0.ttf') format('truetype');}
+@font-face {font-family: 'Novecentowide-Normal';src: url('/webfonts/21F7CD_4_0.eot');src: url('/webfonts/21F7CD_4_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/21F7CD_4_0.woff') format('woff'),url('/webfonts/21F7CD_4_0.ttf') format('truetype');}
+@font-face {font-family: 'Novecentowide-Medium';src: url('/webfonts/21F7CD_5_0.eot');src: url('/webfonts/21F7CD_5_0.eot?#iefix') format('embedded-opentype'),url('/webfonts/21F7CD_5_0.woff') format('woff'),url('/webfonts/21F7CD_5_0.ttf') format('truetype');}
+@font-face {font-family: 'Karla'; src: local('Karla'), local('Karla-Regular'), url('/webfonts/karla.woff') format('woff'); font-style: normal; font-weight: 400; }
+
+html {
+  color: #000;
+  background: #FFF;
+  overflow-y: scroll;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+// For IE - IE doesn't inherit font from body
+html, textarea {
+  @include sebitmin_font;
+}
+
+::selection {
+  background: $sebitmin_pink;
+  color: $sebitmin_cream;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+caption, th {
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+abbr, acronym {
+  border: 0;
+  font-variant:normal;
+}
+
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*to enable resizing for IE*/
+input, textarea, select {
+  *font-size: 100%;
+}
+
+/*because legend doesn't inherit in IE */
+legend {
+  color: #000;
+}
+
+del, ins {
+  text-decoration: none;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix:after {
+  clear: both;
+  content: ".";
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: $sebitmin_pink;
+}
+
+.content_outer {
+  width: 1024px;
+  margin: 0 auto 0 auto;
+}
+
+.content {
+  width: 1024px;
+  height: 700px;
+  padding-top: 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.waiting_indicator {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+.icon {
+  @include icon;
+  vertical-align: top;
+  background-repeat: no-repeat !important;
+}
+
+form {
+  .inputFileContainer {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+    input[type="file"] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 !important;
+      cursor: pointer;
+      font-size: 55px;
+      height: 1000px;
+    }
+  }
+}

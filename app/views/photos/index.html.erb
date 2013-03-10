@@ -1,0 +1,25 @@
+<h1>Listing photos</h1>
+
+<table>
+  <tr>
+    <th>Url</th>
+    <th>Key</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @imageable.photos.each do |photo| %>
+  <tr>
+    <td><%= photo.url %></td>
+    <td><%= photo.key %></td>
+    <td><%= link_to 'Show', photo %></td>
+    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+    <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Photo', "/photos/new?imageable_type=#{@imageable.class.to_s}&imageable_id=#{@imageable.id}" %>
